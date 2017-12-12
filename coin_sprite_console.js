@@ -80,7 +80,7 @@
 
           if (filterIndex.length > 0) { // TODO 逻辑待优化
             $('.current').click();
-            alert('发现合适买家');
+            alert('发现合适交易方');
             setTimeout(function() {
               filterIndex.forEach(function (item) {
                 $("tr:eq(" + (item + 1) + ")").css("background", "#f854");
