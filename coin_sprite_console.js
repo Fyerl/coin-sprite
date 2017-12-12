@@ -29,14 +29,6 @@
     mineCoin();
   });
 
-  function setTradingType() {
-    const t = window.location.pathname.split('/');
-    tradingType = {
-      type: t[1] === 'buy' ? 'SELL' : 'BUY',
-      currency: t[2],
-    };
-  };
-
   function insertJq(cb) {
     if (!window.jQuery) {
       const head = document.getElementsByTagName('head')[0];
@@ -49,6 +41,14 @@
     } else {
       cb && cb();
     }
+  };
+
+  function setTradingType() {
+    const t = window.location.pathname.split('/');
+    tradingType = {
+      type: t[1] === 'buy' ? 'SELL' : 'BUY',
+      currency: t[2],
+    };
   };
 
   function mineCoin() {
