@@ -1,8 +1,5 @@
 /**
  * ****** CoinSprite(控制台版 ) ******
- * Author: Fyerl
- * Weibo:  Fyerl_
- * Blog:   fyerl.me
  * 
  * minAmount        限额最低
  * maxAmount        限额最高
