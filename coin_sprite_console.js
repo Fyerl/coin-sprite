@@ -10,7 +10,7 @@
   const params = {
     minAmount: 1000,
     maxAmount: 5000,
-    price: 12000,
+    price: 120000,
     refreshInterval: 5000
   };
 
