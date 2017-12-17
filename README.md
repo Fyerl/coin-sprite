@@ -8,7 +8,7 @@
   const params = {
     minAmount: 1000,       // 最低限额
     maxAmount: 5000,       // 最高限额
-    price: 12000,          // 期望成交价
+    price: 120000,          // 期望成交价
     refreshInterval: 5000  // 刷新间隔(毫秒)
   };
 ...
