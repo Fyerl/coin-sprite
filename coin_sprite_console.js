@@ -1,5 +1,5 @@
 /**
- * ****** CoinSprite(控制台版 ) ******
+ * **** CoinSprite(控制台版 ) ****
  * 
  * minAmount        限额最低
  * maxAmount        限额最高
