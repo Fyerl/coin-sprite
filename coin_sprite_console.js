@@ -5,15 +5,13 @@
  * maxAmount        限额最高
  * price            期望成交价格线
  * refreshInterval  刷新间隔(毫秒)
- * csrf             CSRF码(点击第一页手动发一次search请求, data中_csrf字段)
  */
 (function () {
   const params = {
-    minAmount: 3000,
-    maxAmount: 5000,
-    price: 116000,
-    refreshInterval: 5000,
-    csrf: 'kqd7o2wF-53sEnL96QvOX2rB4xChmp5fdrcc',
+    minAmount: 0,
+    maxAmount: 1000,
+    price: 5200,
+    refreshInterval: 5000
   };
 
   const trading = {
@@ -22,8 +20,8 @@
   };
 
   insertJq(function () {
-    setTradingType();
-    mineCoin();
+    recognizeTradingType();
+    startTradingWatcher();
   });
 
   function insertJq(cb) {
@@ -40,7 +38,7 @@
     }
   };
 
-  function setTradingType() {
+  function recognizeTradingType() {
     const t = window.location.pathname.split('/');
     tradingType = {
       type: t[1] === 'buy' ? 'SELL' : 'BUY',
@@ -48,7 +46,7 @@
     };
   };
 
-  function mineCoin() {
+  function startTradingWatcher() {
     $.ajax({
       type: 'POST',
       url: 'https://www.coincola.com/api/v1/contentslist/search',
@@ -61,7 +59,7 @@
         sort_order: 'GENERAL',
         type: tradingType.type,
         crypto_currency: tradingType.currency,
-        _csrf: params.csrf,
+        _csrf: $("input[name=_csrf]").val(),
       },
       dataType: 'json',
       timeout: 12000,
@@ -85,7 +83,7 @@
             }, 0);
           } else {
             setTimeout(function () {
-              mineCoin();
+              startTradingWatcher();
             }, params.refreshInterval);
           }
         } else {
