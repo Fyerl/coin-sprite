@@ -3,14 +3,14 @@
  * 
  * minAmount        限额最低
  * maxAmount        限额最高
- * price            期望成交价格线
+ * price            期望成交价
  * refreshInterval  刷新间隔(毫秒)
  */
 (function () {
   const params = {
-    minAmount: 0,
-    maxAmount: 1000,
-    price: 5200,
+    minAmount: 1000,
+    maxAmount: 5000,
+    price: 12000,
     refreshInterval: 5000
   };
 
